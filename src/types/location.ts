@@ -14,3 +14,8 @@ export interface formType {
   state: string;
   zip: string;
 }
+
+export interface ChangeProps {
+  data: Partial<formType>;
+  inputId: string;
+}

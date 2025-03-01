@@ -2,12 +2,18 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import LocationForm from './LocationForm';
-import LocationsList from './LocationsList';
-import { ApiResponse, formType, LocationSuggestion } from '@/types/location';
+// import LocationsList from './LocationsList';
+import {
+  ApiResponse,
+  ChangeProps,
+  formType,
+  LocationSuggestion,
+} from '@/types/location';
 
 const LocationFinder = () => {
   const [locations, setLocations] = useState<LocationSuggestion[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeInput, setActiveInput] = useState<string>('');
   const [formData, setFormData] = useState<formType>({
     state: '',
     street: '',
@@ -55,8 +61,9 @@ const LocationFinder = () => {
     return () => clearTimeout(handler);
   }, [formData]);
 
-  const handleChange = useCallback((data: Partial<typeof formData>) => {
-    setFormData((prev) => ({ ...prev, ...data }));
+  const handleChange = useCallback((props: ChangeProps) => {
+    setFormData((prev) => ({ ...prev, ...props.data }));
+    setActiveInput(props.inputId);
   }, []);
 
   const handleLocationSelect = useCallback((location: LocationSuggestion) => {
@@ -94,17 +101,26 @@ const LocationFinder = () => {
 
       setFormData(newFormData);
     }
+
+    setActiveInput('');
   }, []);
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
-        <LocationForm formData={formData} handleChange={handleChange} />
-        <LocationsList
+      <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md">
+        <LocationForm
+          formData={formData}
+          handleChange={handleChange}
+          activeField={activeInput}
           isLoading={isLoading}
           locations={locations}
           onLocationSelect={handleLocationSelect}
         />
+        {/* <LocationsList
+          isLoading={isLoading}
+          locations={locations}
+          onLocationSelect={handleLocationSelect}
+        /> */}
       </div>
     </div>
   );

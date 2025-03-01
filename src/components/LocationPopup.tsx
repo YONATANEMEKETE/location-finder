@@ -1,7 +1,7 @@
 import { LocationSuggestion } from '@/types/location';
 import React from 'react';
-import LocationCard from './LocationCard';
 import LoadingLocations from './LoadingLocations';
+import LocationCard from './LocationCard';
 
 interface ListProps {
   locations: LocationSuggestion[];
@@ -9,17 +9,13 @@ interface ListProps {
   onLocationSelect: (location: LocationSuggestion) => void;
 }
 
-const LocationsList = ({
+const LocationPopup = ({
   locations,
   isLoading,
   onLocationSelect,
 }: ListProps) => {
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">
-        Locations
-      </h2>
-
+    <div className="p-4 bg-white absolute top-full left-0 right-0 shadow-md rounded-md z-[1000] min-w-[300px]">
       {isLoading ? (
         <LoadingLocations />
       ) : locations.length > 0 ? (
@@ -41,4 +37,4 @@ const LocationsList = ({
   );
 };
 
-export default LocationsList;
+export default LocationPopup;
