@@ -41,7 +41,7 @@ const LocationFinder = () => {
         const response = await fetch(
           `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest?f=json&text=${encodeURIComponent(
             query
-          )}&countryCode=US&maxSuggestion=5`
+          )}&countryCode=USA&maxSuggestion=5&category=Address`
         );
         const data: ApiResponse = await response.json();
         const suggestions = data.suggestions;
