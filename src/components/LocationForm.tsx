@@ -8,12 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select';
+import { formType } from '@/types/location';
 
 interface FormProps {
-  formData: {
-    name: string;
-    countryCode: string;
-  };
+  formData: formType;
   handleChange: (data: Partial<FormProps['formData']>) => void;
 }
 
@@ -33,17 +31,50 @@ const LocationForm = ({ formData, handleChange }: FormProps) => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">Street</Label>
           <Input
-            id="name"
-            placeholder="Enter the name"
-            value={formData.name}
-            onChange={(e) => handleChange({ name: e.target.value })}
+            id="Street"
+            placeholder="Enter the Street"
+            value={formData.street}
+            onChange={(e) => handleChange({ street: e.target.value })}
             className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
         <div className="space-y-2">
+          <Label htmlFor="name">Zip</Label>
+          <Input
+            id="Zip"
+            placeholder="Enter the Zip Code"
+            value={formData.zip}
+            onChange={(e) => handleChange({ zip: e.target.value })}
+            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="name">City</Label>
+          <Input
+            id="City"
+            placeholder="Enter the City"
+            value={formData.city}
+            onChange={(e) => handleChange({ city: e.target.value })}
+            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="name">State</Label>
+          <Input
+            id="State"
+            placeholder="Enter the State"
+            value={formData.state}
+            onChange={(e) => handleChange({ state: e.target.value })}
+            className="transition-all duration-200 focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
+
+        {/* <div className="space-y-2">
           <Label htmlFor="country-code">Country Code</Label>
           <Select
             value={formData.countryCode}
@@ -63,7 +94,7 @@ const LocationForm = ({ formData, handleChange }: FormProps) => {
               ))}
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
       </div>
     </div>
   );

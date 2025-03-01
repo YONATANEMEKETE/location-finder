@@ -9,6 +9,8 @@ export interface ApiResponse {
 }
 
 export interface formType {
-  name: string;
-  countryCode: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
 }
