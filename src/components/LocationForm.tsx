@@ -1,13 +1,13 @@
 import React from 'react';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from './ui/select';
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from './ui/select';
 import { formType } from '@/types/location';
 
 interface FormProps {
@@ -15,13 +15,13 @@ interface FormProps {
   handleChange: (data: Partial<FormProps['formData']>) => void;
 }
 
-const countryCodes = [
-  { value: 'FRA', label: 'France' },
-  { value: 'GBR', label: 'United Kingdom' },
-  { value: 'US', label: 'United States' },
-  { value: 'CHN', label: 'China' },
-  { value: 'ETH', label: 'Ethiopia' },
-];
+// const countryCodes = [
+//   { value: 'FRA', label: 'France' },
+//   { value: 'GBR', label: 'United Kingdom' },
+//   { value: 'US', label: 'United States' },
+//   { value: 'CHN', label: 'China' },
+//   { value: 'ETH', label: 'Ethiopia' },
+// ];
 
 const LocationForm = ({ formData, handleChange }: FormProps) => {
   return (

@@ -70,7 +70,6 @@ const LocationFinder = () => {
       const city = parts[1]; // "Bethlehem"
       const state = parts[2]; // "PA"
       const zipCode = parts[3]; // "18017"
-      const country = parts[4]; // "USA"
 
       const newFormData: formType = {
         street: street,
@@ -85,7 +84,6 @@ const LocationFinder = () => {
       const city = parts[1] || ''; // "Bethlehem"
       const state = parts[2] || ''; // "PA"
       const zipCode = parts[3] || ''; // "18017"
-      const country = parts[4] || ''; // "USA"
 
       const newFormData: formType = {
         street: street,
